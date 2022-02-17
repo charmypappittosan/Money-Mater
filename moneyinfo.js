@@ -6,7 +6,19 @@
 function value(event){
     const costValue = document.getElementById(event);
     const totalValue = parseInt(costValue.value);
+    const validationMassege=document.getElementById('validation-massege');
+    if(totalValue>0){
+        costValue.value=totalValue;
+        validationMassege.style.display = "none";
     return totalValue;
+    }
+    else{
+        validationMassege.style.display = "block";
+      const emptyfield = "";
+      costValue.value=emptyfield;
+      return emptyfield;
+    }
+    
 
 }
 
@@ -23,7 +35,14 @@ document.getElementById('calculate').addEventListener('click',function(){
     
     const balanceTotal=document.getElementById('balance');
     const totalBalance=income-totalCalculatedExpense;
-    balanceTotal.innerText=totalBalance;
+    if(totalBalance>=0){
+        
+        balanceTotal.innerText = totalBalance;
+    }
+    else{
+        const validation=document.getElementById('balance-validation');
+        validation.style.display='block';
+    }
 
 
 });
