@@ -1,7 +1,10 @@
 // function for total income
 // function getIncome() {
 //   const randomIncome = Math.round(Math.random() * 10000);
-//     return randomIncome;
+//  
+//    return randomIncome;
+
+// function for all input values
 
 function value(event){
     const costValue = document.getElementById(event);
@@ -22,6 +25,8 @@ function value(event){
 
 }
 
+
+// function for calculation of calculator button
 document.getElementById('calculate').addEventListener('click',function(){
     // const income=document.getElementById('income');
     // income.value=getIncome();
@@ -33,6 +38,7 @@ document.getElementById('calculate').addEventListener('click',function(){
     const totalCalculatedExpense=food+rent+cloth;
     totalExpense.innerText=totalCalculatedExpense;
     
+    // calculating total expenses
     const balanceTotal=document.getElementById('balance');
     const totalBalance=income-totalCalculatedExpense;
     if(totalBalance>=0){
@@ -46,13 +52,18 @@ document.getElementById('calculate').addEventListener('click',function(){
 
 
 });
+// function for save button
 document.getElementById('save').addEventListener('click',function(){
     const income2=value('income');
     const saveInput=value('save-input');
+
+    // calculating saving amount
     const savingAmount = document.getElementById("saving-amount");
     const saverTax=saveInput/100;
     const totalSavingAmount=income2*saverTax;
     savingAmount.innerText = parseFloat(totalSavingAmount);
+
+    // calculating remaining balance
     const remainingBalance = document.getElementById("remaining-balance");
     const remainingTotalBalance=income2-totalSavingAmount;
     remainingBalance.innerText = parseFloat(remainingTotalBalance);
